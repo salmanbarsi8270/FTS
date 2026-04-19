@@ -15,29 +15,29 @@ const ProductCard = ({
   return (
     <motion.div 
       whileHover={{ y: -10 }}
-      className="flex-shrink-0 w-[350px] md:w-[450px] aspect-[4/5] p-[1px] bg-gradient-to-b from-white/10 to-transparent group cursor-grab active:cursor-grabbing rounded-3xl hover:from-primary/30 transition-all duration-500 shadow-xl"
+      className="flex-shrink-0 w-[350px] md:w-[450px] aspect-[4/5] p-[1px] bg-gradient-to-b from-border to-transparent group cursor-grab active:cursor-grabbing rounded-3xl hover:from-primary/30 transition-all duration-500 shadow-xl"
     >
-      <div className="h-full bg-neutral-900/80 backdrop-blur-2xl flex flex-col p-10 lg:p-12 relative overflow-hidden group-hover:bg-neutral-800 shadow-[inset_0_4px_30px_rgba(255,255,255,0.02)] transition-colors duration-500 rounded-[23px]">
+      <div className="h-full bg-card/80 backdrop-blur-2xl flex flex-col p-10 lg:p-12 relative overflow-hidden group-hover:bg-muted shadow-[inset_0_4px_30px_rgba(0,0,0,0.02)] transition-colors duration-500 rounded-[23px]">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
         
         <div className="mb-auto relative z-10">
-          <div className="w-16 h-16 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)]">
+          <div className="w-16 h-16 rounded-2xl bg-background/50 border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)]">
             <Icon size={32} className="text-primary group-hover:text-white transition-colors" />
           </div>
         </div>
 
-        <h3 className="text-3xl md:text-4xl font-heading font-black text-white uppercase tracking-tighter mb-6 group-hover:text-primary transition-colors italic relative z-10">
+        <h3 className="text-3xl md:text-4xl font-heading font-black text-foreground uppercase tracking-tighter mb-6 group-hover:text-primary transition-colors italic relative z-10">
           {title}
         </h3>
         
-        <p className="text-base md:text-lg text-white/50 leading-relaxed mb-12 relative z-10">
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-12 relative z-10">
           {desc}
         </p>
 
         <div className="mt-auto flex items-center gap-4 group-hover:gap-6 transition-all duration-500 relative z-10 w-full">
           <span className="text-xs font-black uppercase tracking-widest text-primary">Discover Engine</span>
           <div className="relative flex-1 h-[2px]">
-            <div className="absolute inset-0 bg-white/10" />
+            <div className="absolute inset-0 bg-border" />
             <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
           </div>
         </div>
@@ -73,7 +73,7 @@ export const Products: React.FC = () => {
   ];
 
   return (
-    <section id="products" className="py-48 relative bg-black overflow-hidden">
+    <section id="products" className="py-48 relative bg-background overflow-hidden">
       <div className="container mx-auto px-8 relative z-10 mb-24">
         <motion.div 
           variants={staggerContainer}
@@ -84,12 +84,12 @@ export const Products: React.FC = () => {
         >
           <motion.div variants={fadeInUp}>
             <h2 className="text-xs font-black text-primary tracking-[0.5em] uppercase mb-4">The Suite</h2>
-            <h3 className="text-6xl md:text-8xl font-heading font-black text-white uppercase italic tracking-tighter">
+            <h3 className="text-6xl md:text-8xl font-heading font-black text-foreground uppercase italic tracking-tighter">
               Products
             </h3>
           </motion.div>
           <motion.div variants={fadeInUp} className="max-w-md hidden md:block">
-            <p className="text-white/40 border-l border-white/20 pl-6 text-sm flex">
+            <p className="text-muted-foreground border-l border-border pl-6 text-sm flex">
               Explore our proprietary suite of high-performance tools architected for the Saudi enterprise landscape.
             </p>
           </motion.div>

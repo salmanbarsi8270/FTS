@@ -17,28 +17,28 @@ const SolutionCard = ({
   <motion.div 
     variants={fadeInUp}
     whileHover={{ scale: 1.02, y: -10 }}
-    className="relative flex flex-col bg-neutral-900/60 border border-white/10 rounded-3xl p-10 lg:p-12 group hover:bg-neutral-800 hover:border-primary/50 transition-all shadow-xl overflow-hidden"
+    className="relative flex flex-col bg-card border border-border rounded-3xl p-10 lg:p-12 group hover:bg-muted hover:border-primary/50 transition-all shadow-xl overflow-hidden"
   >
     {/* Inner glow effect */}
     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
     <div className="flex items-center gap-6 mb-12 relative z-10">
-      <div className="w-16 h-16 rounded-2xl border border-white/10 bg-black/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all duration-500">
+      <div className="w-16 h-16 rounded-2xl border border-border bg-background/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all duration-500">
         <Icon size={32} className="text-primary group-hover:text-white transition-colors" />
       </div>
-      <h3 className="text-3xl lg:text-4xl font-heading font-black text-white uppercase tracking-tighter italic group-hover:text-primary transition-colors">{title}</h3>
+      <h3 className="text-3xl lg:text-4xl font-heading font-black text-foreground uppercase tracking-tighter italic group-hover:text-primary transition-colors">{title}</h3>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
       {/* Challenges Sub-panel */}
-      <div className="flex flex-col gap-6 p-8 rounded-2xl bg-black/40 border border-white/5 group-hover:border-white/10 transition-colors">
+      <div className="flex flex-col gap-6 p-8 rounded-2xl bg-background/40 border border-border group-hover:border-border/80 transition-colors">
         <div className="flex items-center gap-3 text-red-500/80 font-black text-[10px] uppercase tracking-[0.3em]">
           <Minus size={16} className="stroke-[3]" />
           <span>Legacy Friction</span>
         </div>
         <ul className="space-y-4">
           {challenges.map((item, i) => (
-            <li key={i} className="flex items-start gap-4 text-white/40 text-sm font-medium leading-relaxed group-hover:text-white/60 transition-colors">
+            <li key={i} className="flex items-start gap-4 text-muted-foreground text-sm font-medium leading-relaxed group-hover:text-foreground/60 transition-colors">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500/40 mt-2 shrink-0" />
               {item}
             </li>
@@ -55,7 +55,7 @@ const SolutionCard = ({
         </div>
         <ul className="space-y-4 relative z-10">
           {solutions.map((item, i) => (
-            <li key={i} className="flex items-start gap-4 text-white/80 text-sm font-black leading-relaxed group-hover:text-white transition-colors">
+            <li key={i} className="flex items-start gap-4 text-foreground/80 text-sm font-black leading-relaxed group-hover:text-foreground transition-colors">
               <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0 shadow-[0_0_10px_rgba(79,70,229,0.8)]" />
               {item}
             </li>
@@ -135,7 +135,7 @@ export const Solutions: React.FC = () => {
   ];
 
   return (
-    <section id="solutions" className="py-48 relative bg-black text-white px-8 md:px-24">
+    <section id="solutions" className="py-48 relative bg-background text-foreground px-8 md:px-24">
       <div className="container mx-auto relative z-10">
         <motion.div 
           variants={staggerContainer}
@@ -146,11 +146,11 @@ export const Solutions: React.FC = () => {
         >
           <motion.div variants={fadeInUp}>
             <h2 className="text-xs font-black text-primary tracking-[0.5em] uppercase mb-4">The Impact</h2>
-            <h3 className="text-6xl md:text-9xl font-heading font-black text-white uppercase italic tracking-tighter leading-none">
+            <h3 className="text-6xl md:text-9xl font-heading font-black text-foreground uppercase italic tracking-tighter leading-none">
               Solutions
             </h3>
           </motion.div>
-          <motion.p variants={fadeInUp} className="text-xl text-white/40 max-w-sm mb-4 border-l border-white/20 pl-8 font-medium">
+          <motion.p variants={fadeInUp} className="text-xl text-muted-foreground max-w-sm mb-4 border-l border-border pl-8 font-medium">
             Bridging the gap between institutional challenge and technological mastery.
           </motion.p>
         </motion.div>

@@ -48,20 +48,20 @@ const ServiceCard = ({ icon: Icon, title, desc }: { icon: any; title: string; de
   <motion.div 
     variants={fadeInUp}
     whileHover={{ scale: 1.02, y: -10 }}
-    className="relative flex flex-col border border-white/10 bg-neutral-900/60 rounded-3xl p-10 lg:p-12 group hover:bg-neutral-800 hover:border-primary/50 transition-all shadow-xl overflow-hidden"
+    className="relative flex flex-col border border-border bg-card rounded-3xl p-10 lg:p-12 group hover:bg-muted hover:border-primary/50 transition-all shadow-xl overflow-hidden"
   >
     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
     
-    <div className="w-16 h-16 rounded-2xl border border-white/10 bg-black/50 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all duration-500 relative z-10">
+    <div className="w-16 h-16 rounded-2xl border border-border bg-background/50 flex items-center justify-center mb-10 group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all duration-500 relative z-10">
       <Icon size={32} className="text-primary group-hover:text-white transition-colors" />
     </div>
-    <h3 className="text-3xl lg:text-4xl font-heading font-black text-white mb-6 group-hover:text-primary transition-colors uppercase tracking-tighter italic relative z-10">{title}</h3>
-    <p className="text-white/50 text-base leading-relaxed mb-auto pb-10 relative z-10">{desc}</p>
+    <h3 className="text-3xl lg:text-4xl font-heading font-black text-foreground mb-6 group-hover:text-primary transition-colors uppercase tracking-tighter italic relative z-10">{title}</h3>
+    <p className="text-muted-foreground text-base leading-relaxed mb-auto pb-10 relative z-10">{desc}</p>
     
     <div className="mt-auto flex items-center gap-4 group-hover:gap-6 transition-all duration-500 relative z-10 w-full">
       <span className="text-xs font-black uppercase tracking-widest text-primary">Service Detail</span>
       <div className="relative flex-1 h-[2px]">
-        <div className="absolute inset-0 bg-white/10" />
+        <div className="absolute inset-0 bg-border" />
         <div className="absolute inset-0 bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
       </div>
     </div>
@@ -69,7 +69,7 @@ const ServiceCard = ({ icon: Icon, title, desc }: { icon: any; title: string; de
 );
 
 const LogoCard = ({ logo, name }: { logo: string; name: string }) => (
-  <div className="flex-shrink-0 w-64 h-32 border border-white/5 mx-6 flex items-center justify-center p-10 group hover:border-primary/40 hover:bg-white/5 transition-all bg-neutral-900/20 overflow-hidden">
+  <div className="flex-shrink-0 w-64 h-32 border border-border mx-6 flex items-center justify-center p-10 group hover:border-primary/40 hover:bg-foreground/5 transition-all bg-card/20 overflow-hidden">
     <img 
       src={logo} 
       alt={name} 
@@ -87,14 +87,14 @@ const IntegrationCard = ({ logo, name, desc }: { logo: string; name: string; des
       whileHover={{ scale: 1.02 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="flex flex-col bg-neutral-900/60 border border-white/10 rounded-2xl overflow-hidden group hover:bg-neutral-800 hover:border-primary/50 transition-all shadow-xl"
+      className="flex flex-col bg-card border border-border rounded-2xl overflow-hidden group hover:bg-muted hover:border-primary/50 transition-all shadow-xl"
     >
-      <div className="h-48 flex items-center justify-center p-8 bg-black/50 group-hover:bg-black/80 transition-colors relative" style={{ perspective: 1200 }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-0" />
+      <div className="h-48 flex items-center justify-center p-8 bg-background/50 group-hover:bg-background/80 transition-colors relative" style={{ perspective: 1200 }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20 z-0" />
         <motion.div 
           animate={{ rotateY: isHovered ? 180 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="bg-white rounded-xl w-full h-full p-6 flex items-center justify-center border border-white/5 shadow-[inset_0_4px_20px_rgba(0,0,0,0.1)] relative z-10"
+          className="bg-white rounded-xl w-full h-full p-6 flex items-center justify-center border border-border/30 shadow-[inset_0_4px_20px_rgba(0,0,0,0.1)] relative z-10"
           style={{ transformStyle: "preserve-3d" }}
         >
            <div className="absolute inset-0 flex items-center justify-center p-6" style={{ backfaceVisibility: "hidden" }}>
@@ -106,8 +106,8 @@ const IntegrationCard = ({ logo, name, desc }: { logo: string; name: string; des
         </motion.div>
       </div>
       <div className="p-8 flex-1 flex flex-col items-center text-center">
-        <h5 className="font-heading font-black text-white text-xl tracking-tight mb-3 group-hover:text-primary transition-colors">{name}</h5>
-        <p className="text-white/60 text-xs font-medium leading-relaxed">{desc}</p>
+        <h5 className="font-heading font-black text-foreground text-xl tracking-tight mb-3 group-hover:text-primary transition-colors">{name}</h5>
+        <p className="text-muted-foreground text-xs font-medium leading-relaxed">{desc}</p>
       </div>
     </motion.div>
   );
@@ -202,14 +202,14 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-48 relative bg-black text-white overflow-hidden">
+    <section id="services" className="py-48 relative bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-8 relative z-10">
           <motion.div variants={fadeInUp} className="w-full mb-16">
-            <h3 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase tracking-widest mb-6">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground uppercase tracking-widest mb-6">
               Service Portfolio
             </h3>
-            <div className="w-full h-px bg-white/20 mb-6" />
-            <p className="text-lg text-white/50 max-w-3xl font-medium">
+            <div className="w-full h-px bg-border mb-6" />
+            <p className="text-lg text-muted-foreground max-w-3xl font-medium">
               Every engagement is designed around business outcomes and measurable value — no off-the-shelf shortcuts.
             </p>
           </motion.div>
@@ -235,12 +235,12 @@ export const Services: React.FC = () => {
           transition={{ duration: 1 }}
           className="relative mb-48"
         >
-          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-black to-transparent z-10" />
+          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-background to-transparent z-10" />
           
           <div className="mb-12 w-full">
-            <h4 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase tracking-widest mb-6">Institutional Partners</h4>
-            <div className="w-full h-px bg-white/20 mb-12" />
+            <h4 className="text-2xl md:text-3xl font-heading font-bold text-foreground uppercase tracking-widest mb-6">Institutional Partners</h4>
+            <div className="w-full h-px bg-border mb-12" />
             <div className="flex animate-scroll-left">
               {[...clientLogos, ...clientLogos].map((client, i) => (
                 <LogoCard key={i} logo={client.logo} name={client.name} />
@@ -254,14 +254,14 @@ export const Services: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="pt-40 border-t border-white/10"
+          className="pt-40 border-t border-border"
         >
           <motion.div variants={fadeInUp} className="mb-16 w-full">
-             <h4 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase tracking-widest mb-6">Integration Expertise</h4>
-             <div className="w-full h-[2px] bg-white/20 mb-6 relative">
+             <h4 className="text-2xl md:text-3xl font-heading font-bold text-foreground uppercase tracking-widest mb-6">Integration Expertise</h4>
+             <div className="w-full h-[2px] bg-border mb-6 relative">
                  <div className="absolute top-0 left-0 h-full w-32 bg-primary" />
              </div>
-             <p className="text-white/60 max-w-3xl text-lg font-medium">We have hands-on integration experience with Saudi Arabia's leading government portals, payment gateways, banking systems, and identity platforms — delivering seamless, production-grade connectivity across enterprise environments.</p>
+             <p className="text-muted-foreground max-w-3xl text-lg font-medium">We have hands-on integration experience with Saudi Arabia's leading government portals, payment gateways, banking systems, and identity platforms — delivering seamless, production-grade connectivity across enterprise environments.</p>
           </motion.div>
 
           <div className="space-y-32">
@@ -275,7 +275,7 @@ export const Services: React.FC = () => {
               >
                 <motion.h5 variants={fadeInUp} className="text-primary font-black text-sm uppercase tracking-widest mb-10 flex items-center gap-4">
                   <span>{category.title}</span>
-                  <div className="flex-1 h-px bg-white/5" />
+                  <div className="flex-1 h-px bg-border" />
                 </motion.h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {category.items.map((item, idx) => (

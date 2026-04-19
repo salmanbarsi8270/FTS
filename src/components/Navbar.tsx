@@ -26,14 +26,13 @@ export const Navbar: React.FC = () => {
       const scrollY = window.scrollY
       setIsScrolled(scrollY > 20)
       
-      // If at the very top, always set to home
       if (scrollY < 100) {
         setActiveSection("home")
         return
       }
       
       const sections = menuItems.map(item => item.id)
-      const scrollPosition = scrollY + 150 // Offset for better detection
+      const scrollPosition = scrollY + 150
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -60,7 +59,6 @@ export const Navbar: React.FC = () => {
         behavior: "smooth",
         block: "start"
       })
-      
       setIsMobileMenuOpen(false)
     }
   }
@@ -68,9 +66,8 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 px-4 md:px-8 ${isScrolled ? "py-4" : "py-8"}`}>
-        <div className={`max-w-7xl mx-auto glass rounded-2xl transition-all duration-300 ${isScrolled ? "shadow-primary/10 border-border bg-card/80" : "bg-card/30 border-border/40"}`}>
+        <div className={`max-w-7xl mx-auto rounded-2xl transition-all duration-500 ${isScrolled ? "glass shadow-primary/10 border-border bg-card/80" : "bg-transparent hover:bg-white/5 border-transparent hover:border-white/10 backdrop-blur-0 hover:backdrop-blur-md"}`}>
           <div className="flex items-center justify-between px-8 py-4">
-            {/* Logo */}
             {/* Logo */}
             <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
               <img 
@@ -81,7 +78,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden lg:flex items-center gap-8">
               {menuItems.filter(item => item.id !== 'contact').map((item) => (
                 <a
                   key={item.name}
@@ -90,7 +87,7 @@ export const Navbar: React.FC = () => {
                   className={`relative group text-xs font-bold uppercase tracking-widest transition-all duration-300 py-1 ${
                     activeSection === item.id
                       ? "text-primary"
-                      : "text-gray-500 hover:text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {item.name}
@@ -101,10 +98,19 @@ export const Navbar: React.FC = () => {
                   }`} />
                 </a>
               ))}
+
+              {/* Theme Toggle */}
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-xl glass text-foreground hover:text-primary transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-primary" />}
+              </button>
               
               <button
                 onClick={(e) => handleClick(e as any, 'contact')}
-                className="px-8 py-3 bg-primary/20 backdrop-blur-md border border-primary/50 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-primary/40 hover:border-primary/80 transition-all shadow-[0_4px_24px_rgba(79,70,229,0.3)]"
+                className="px-8 py-3 bg-primary/20 backdrop-blur-md border border-primary/50 text-foreground text-xs font-black uppercase tracking-widest rounded-full hover:bg-primary/40 hover:border-primary/80 transition-all shadow-[0_4px_24px_rgba(79,70,229,0.3)]"
               >
                 Contact Us
               </button>
