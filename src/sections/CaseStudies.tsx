@@ -4,14 +4,12 @@ import { ExternalLink, CheckCircle2 } from 'lucide-react';
 import { staggerContainer, fadeInUp } from '../lib/animations';
 
 const CaseStudyCard = ({ 
-  title, 
   client, 
   url, 
   desc, 
   highlights, 
   index 
 }: { 
-  title: string; 
   client: string; 
   url: string; 
   desc: string; 
