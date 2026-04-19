@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, ShieldCheck, Users2, Activity, Minus, Plus } from 'lucide-react';
-import { staggerContainer, fadeInUp, springHover } from '../lib/animations';
+import { staggerContainer, fadeInUp } from '../lib/animations';
 
 const SolutionCard = ({ 
   icon: Icon, 
@@ -69,67 +69,67 @@ const SolutionCard = ({
 export const Solutions: React.FC = () => {
   const solutions = [
     {
-      title: "Digital Transformation",
+      title: "High Licensing Costs",
       icon: Globe,
       challenges: [
-        "Legacy system friction",
-        "Fragmented data silos",
-        "Slow time-to-market",
-        "Lack of scalability"
+        "Escalating per-user fees",
+        "Recurring license overhead",
+        "Budget-blocking growth",
+        "Zero long-term ownership"
       ],
       solutions: [
-        "Cloud-native architecture",
-        "Unified data integration",
-        "Microservices velocity",
-        "Infinite scaling platform"
+        "Fully custom platforms",
+        "One-time engineering cost",
+        "Zero recurring license fees",
+        "Permanent asset ownership"
       ]
     },
     {
-      title: "Workforce Management",
+      title: "Fragmented Systems",
       icon: Users2,
       challenges: [
-        "Manual scheduling errors",
-        "Compliance grey areas",
-        "Poor employee visibility",
-        "Onboarding bottlenecks"
+        "Disconnected siloed platforms",
+        "Prevented information flow",
+        "Duplicate data entry",
+        "Manual reconciliation"
       ],
       solutions: [
-        "AI-optimized shifts",
-        "GOSI & labor law sync",
-        "Real-time performance",
-        "Automated self-onboarding"
+        "Unified integration layer",
+        "Coherent enterprise platform",
+        "Single source of truth",
+        "Cross-system orchestration"
       ]
     },
     {
-      title: "Compliance & E-Invoice",
+      title: "Manual Workflows",
       icon: ShieldCheck,
       challenges: [
-        "Strict ZATCA mandates",
-        "Complex Phase 2 logic",
-        "Security vulnerabilities",
-        "Real-time audit stress"
+        "Manual error introduction",
+        "Delayed business decisions",
+        "High operating costs",
+        "Lack of accountability"
       ],
       solutions: [
-        "Built-in ZATCA SDK",
-        "Automated XML signing",
-        "Encryption-first logic",
-        "Immutable audit trails"
+        "End-to-end automation",
+        "SLA-driven escalations",
+        "Real-time decision support",
+        "Reduced operational waste"
       ]
     },
     {
-      title: "Omnichannel Experience",
+      title: "Legacy Systems",
       icon: Activity,
       challenges: [
-        "Inconsistent messaging",
-        "Lost customer context",
-        "Slow response latency",
-        "Channel friction points"
+        "Monolithic architectures",
+        "Hard to extend or scale",
+        "Integration bottlenecks",
+        "Growth-blocking tech debt"
       ],
       solutions: [
-        "Single-view CRM dashboard",
-        "Cross-platform state sync",
-        "AI-native instant routing",
-        "Seamless journey flow"
+        "Cloud-native modernization",
+        "Agile microservices",
+        "High-availability infra",
+        "Scalable digital foundation"
       ]
     }
   ];

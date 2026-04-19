@@ -6,7 +6,8 @@ import {
   Cloud, 
   Smartphone, 
   Database, 
-  LineChart 
+  LineChart, 
+  FileText
 } from 'lucide-react';
 import alakaria from '@/assets/sevices/alakaria.jpg';
 import ambergroup from '@/assets/sevices/ambergroup.jpg';
@@ -42,7 +43,7 @@ import muqeemLogo from '@/assets/regulatory/muquum.jpg';
 import qiwaLogo from '@/assets/regulatory/qiwa.jpg';
 import zatcaLogo from '@/assets/regulatory/zatca.jpg';
 
-import { staggerContainer, fadeInUp, springHover } from '../lib/animations';
+import { staggerContainer, fadeInUp } from '../lib/animations';
 
 const ServiceCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => (
   <motion.div 
@@ -117,33 +118,33 @@ export const Services: React.FC = () => {
   const services = [
     {
       icon: Code2,
-      title: "Custom Development",
-      desc: "Bespoke software architecture tailored to your unique operational flow and scalability needs."
+      title: "Custom ERP / CRM",
+      desc: "Fully bespoke enterprise platforms built for your exact processes, user roles, and Saudi market requirements."
     },
     {
       icon: BrainCircuit,
-      title: "AI & Automation",
-      desc: "Intelligent agentic workflows and RAG-based systems that automate decision-making across the enterprise."
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Infrastructure",
-      desc: "Secure, high-availability cloud migration and managed hosting services optimized for enterprise performance."
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Solutions",
-      desc: "Premium cross-platform mobile experiences that extend your enterprise capabilities to the field."
+      title: "AI & Intelligent Automation",
+      desc: "Private LLMs, RAG-based copilots, agentic AI, and intelligent decision automation embedded into enterprise workflows."
     },
     {
       icon: Database,
-      title: "Data Engineering",
-      desc: "Robust data pipelines and warehousing solutions that transform raw information into strategic assets."
+      title: "BPM & Workflow",
+      desc: "Design, model, and automate end-to-end business processes — approvals, escalations, and cross-system orchestration."
     },
     {
-      icon: LineChart,
-      title: "Digital Strategy",
-      desc: "Navigating the digital landscape with expert consulting in digital transformation and architecture."
+      icon: Smartphone,
+      title: "Omnichannel Touchpoints",
+      desc: "Web portals, mobile apps (iOS & Android), and third-party integrations — all under one architecture, fully owned."
+    },
+    {
+      icon: FileText,
+      title: "Case Management",
+      desc: "Structured intake, routing, resolution, and full audit trail for HR cases, compliance, and internal requests."
+    },
+    {
+      icon: Cloud,
+      title: "Cloud Architecture",
+      desc: "Cloud-native deployments with high availability and automated security scanning on Azure, GCP, and Cloudflare."
     }
   ];
 
@@ -193,9 +194,9 @@ export const Services: React.FC = () => {
       ]
     },
     {
-      title: "Identity, Access & Attendance",
+      title: "Identity & Access",
       items: [
-        { name: "Biometric", logo: biometricLogo, desc: "Fingerprint & face auth, access control integrations" },
+        { name: "Biometric auth", logo: biometricLogo, desc: "Fingerprint & face auth, access control integrations" },
         { name: "Active Directory", logo: activeDirLogo, desc: "SSO, LDAP, Azure AD, RBAC sync, provisioning" }
       ]
     }

@@ -62,25 +62,25 @@ const AdvantageTab = ({
 );
 
 export const WhyFaaz: React.FC = () => {
-  const [openIndex, setOpenIndex] = React.useState(0);
+  const [openIndex, setOpenIndex] = useState(0);
   const containerRef = useIntersectionObserver();
 
   const advantages = [
     {
-      title: "Scale Optimized",
-      desc: "Architected for massive transactional volume. Our core engine powers thousands of concurrent operations with sub-millisecond latency."
+      title: "No License Cost",
+      desc: "Everything we build is fully owned by the client. Zero recurring software license fees, eliminating the 'per-user tax' permanently."
     },
     {
-      title: "Regional Native",
-      desc: "Fully integrated with the Saudi Arabian regulatory ecosystem, including ZATCA Phase 2, Muqeem, and GOSI API suites."
+      title: "Rapid Framework",
+      desc: "Our proprietary development framework and reusable component library enable 2–3x faster delivery compared to conventional approaches."
     },
     {
-      title: "Cost Efficient",
-      desc: "Zero recurring license fees. You own the engineering and the source code, eliminating the 'per-user tax' typical of legacy ERPs."
+      title: "Saudi Mastery",
+      desc: "Deep expertise in KSA regulations (ZATCA, MHRSD, GOSI) and local enterprise expectations, ensuring full compliance and trust."
     },
     {
-      title: "Full Ownership",
-      desc: "Your data, your code, your infrastructure. Complete proprietary handoff allows your internal teams to lead the roadmap."
+      title: "Full-Stack Ownership",
+      desc: "We own the entire stack — from architecture to mobile apps — with no dependency on third-party vendors or legacy constraints."
     }
   ];
 

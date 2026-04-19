@@ -29,34 +29,34 @@ const PlatformCard = ({ icon: Icon, title, desc }: { icon: any; title: string; d
 export const Platform: React.FC = () => {
   const features = [
     {
-      icon: Layers,
-      title: "AI Layer",
-      desc: "Built from the ground up for the AI era, providing a unified foundation for all enterprise operations."
-    },
-    {
-      icon: Zap,
-      title: "Workflow",
-      desc: "Streamline complex processes with intelligent automation that connects every department."
-    },
-    {
       icon: Layout,
-      title: "Low-Code",
-      desc: "Empower your team to build and deploy custom modules in days, not months."
+      title: "Low-Code Builder",
+      desc: "Develop complete web, mobile, and API apps — zero hand-coding required. Native agility for every department."
     },
     {
       icon: Bot,
-      title: "Agentic",
-      desc: "Deploy autonomous agents that understand your proprietary data and execute complex tasks."
+      title: "Agentic AI & RAG",
+      desc: "Dynamic AI agents, decision automation, and retrieval-augmented intelligence embedded in every process."
     },
     {
-      icon: Cpu,
-      title: "Analytics",
-      desc: "Intelligent tracking and resolution for every enterprise scenario, from HR to Logistics."
+      icon: Zap,
+      title: "End-to-End Workflow",
+      desc: "Full workflow automation with pre-built connectors to Saudi government and banking systems."
     },
     {
       icon: FileCheck,
-      title: "ZATCA",
-      desc: "Fully compliant Phase 2 integration for Saudi Arabian e-invoicing mandates."
+      title: "Case Management",
+      desc: "Structured case lifecycle management with SLA, escalation, and full audit trail for accountability."
+    },
+    {
+      icon: Layers,
+      title: "ZATCA Compliant",
+      desc: "Built-in Wave 2 certified e-invoicing. Millions of invoices processed with zero compliance issues."
+    },
+    {
+      icon: Cpu,
+      title: "Cloud Native",
+      desc: "Architected for massive scale on Azure, GCP, or Cloudflare with high-availability and security."
     }
   ];
 

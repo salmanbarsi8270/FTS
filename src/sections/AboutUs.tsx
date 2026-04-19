@@ -12,7 +12,7 @@ const StatCard = ({ icon: Icon, value, label }: { icon: any; value: string; labe
     <div className="w-12 h-12 border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
       <Icon size={24} />
     </div>
-    <span className="text-4xl font-heading font-black text-foreground italic">{value}</span>
+    <span className="text-2xl font-heading font-black text-foreground italic">{value}</span>
     <span className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-black text-center">{label}</span>
   </motion.div>
 );
@@ -48,10 +48,10 @@ export const AboutUs: React.FC = () => {
             </h3>
             <div className="space-y-8 text-xl text-muted-foreground leading-relaxed font-medium max-w-2xl">
               <p>
-                Faaz Technology Solutions is a premier enterprise engineering firm dedicated to architecting the digital future. With a deep focus on the Middle Eastern ecosystem, we bridge the gap between complex legacy requirements and the agile, AI-native world of tomorrow.
+                Faaz Technology Solutions Pvt Ltd is a premier enterprise technology consulting firm specializing in building fully custom, license-free platforms that replace costly off-the-shelf products.
               </p>
               <p>
-                Our philosophy: Infinite flexibility with zero compromise on compliance. We build the operating layers that power the region's largest enterprises.
+                Founded in 2014, we partner with large enterprises across Saudi Arabia to build their complete software infrastructure from scratch — from backend architecture to AI copilots, we own the full stack of the enterprise.
               </p>
             </div>
           </motion.div>
@@ -64,17 +64,17 @@ export const AboutUs: React.FC = () => {
             <div className="grid grid-cols-2 lg:grid-cols-3">
               <StatCard icon={Calendar} value="2014" label="Founded" />
               <StatCard icon={Award} value="10+" label="Years Expertise" />
-              <StatCard icon={MapPin} value="KSA & India" label="Regional Hubs" />
+              <StatCard icon={MapPin} value="India & KSA" label="Regional Hubs" />
             </div>
             <motion.div variants={fadeInUp} className="p-12 flex flex-col md:flex-row items-center justify-between gap-12 bg-card/50">
               <div className="flex flex-col">
                 <span className="text-5xl font-heading font-black text-primary italic">100%</span>
-                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-2">Code Ownership</span>
+                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-2">Custom Ownership</span>
               </div>
               <div className="hidden md:block w-px h-16 bg-border" />
               <div className="flex flex-col text-right">
                 <span className="text-5xl font-heading font-black text-foreground italic">Zero</span>
-                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-2">License Lock-in</span>
+                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mt-2">License Fees</span>
               </div>
             </motion.div>
           </motion.div>
@@ -91,17 +91,17 @@ export const AboutUs: React.FC = () => {
           <CoreCard 
             icon={Target} 
             title="Mission" 
-            desc="Empowering enterprises with sovereign technology stacks that drive radical operational efficiency."
+            desc="To drive digital resilience by replacing fragmented, licensed systems with intelligent, fully owned custom platforms that give enterprises complete control of their operations."
           />
           <CoreCard 
             icon={Eye} 
             title="Vision" 
-            desc="To be the primary architectural partner for Middle Eastern organizations transitioning into the AI-native era."
+            desc="To become the most trusted enterprise software partner in Saudi Arabia — known for deep technical expertise, long-term client relationships, and measurable business impact."
           />
           <CoreCard 
             icon={Sparkles} 
             title="Values" 
-            desc="Radical transparency, operational excellence, and a relentless focus on solving the 'unsolvable'."
+            desc="Innovation & Pragmatism • Long-term Partnership • No License, Full Ownership • Rapid Delivery • Ethical Technology"
           />
         </motion.div>
       </div>

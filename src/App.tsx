@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Home } from './sections/Home';
 import { Platform } from './sections/Platform';
@@ -8,6 +7,7 @@ import { Services } from './sections/Services';
 import { AboutUs } from './sections/AboutUs';
 import { WhyFaaz } from './sections/WhyFaaz';
 import { ContactUs } from './sections/ContactUs';
+import { CaseStudies } from './sections/CaseStudies';
 
 import { Footer } from './components/Footer';
 import { ThemeProvider } from './components/theme-provider';
@@ -29,6 +29,7 @@ function App() {
           <Services />
           <AboutUs />
           <WhyFaaz />
+          <CaseStudies />
           <ContactUs />
           <Footer />
         </main>

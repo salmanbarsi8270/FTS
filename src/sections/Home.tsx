@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { staggerContainer, fadeInUp, springHover } from '../lib/animations';
+import { staggerContainer, fadeInUp } from '../lib/animations';
 import Hls from 'hls.js';
 import heroVideo from '../assets/hero-bg.mp4';
 
@@ -71,48 +71,6 @@ const InteractiveBackground = () => {
   );
 };
 
-const StatCounter = ({ value, label }: { value: string; label: string }) => {
-  const [count, setCount] = useState(0);
-  const target = parseInt(value);
-  const isKSA = value.includes('+') || value.includes('&');
-
-  useEffect(() => {
-    if (isNaN(target)) return;
-    let start = 0;
-    const duration = 2000;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    
-    return () => clearInterval(timer);
-  }, [target]);
-
-  const isText = isNaN(parseInt(value));
-
-  return (
-    <motion.div 
-      variants={fadeInUp} 
-      whileHover={{ scale: 1.05, y: -10 }}
-      className="flex flex-col items-center justify-center p-8 bg-card/60 border border-border rounded-3xl overflow-hidden group hover:bg-card hover:border-primary/50 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <span className="text-4xl font-heading font-black text-foreground group-hover:text-primary transition-colors tracking-tighter mb-3 relative z-10 drop-shadow-md">
-        {isText ? value : (value === "0" ? "0" : count + "+")}
-      </span>
-      <span className="text-xs font-black text-muted-foreground uppercase tracking-[0.2em] relative z-10 group-hover:text-foreground transition-colors text-center leading-relaxed">
-        {label}
-      </span>
-    </motion.div>
-  );
-};
 
 export const Home: React.FC = () => {
   const headline = "Architecting the Intelligent Enterprise";
@@ -124,8 +82,6 @@ export const Home: React.FC = () => {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [0.8, 0]);
 
   return (
     <section id="home" ref={containerRef} className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden !bg-neutral-950 !text-white px-8 md:px-24">

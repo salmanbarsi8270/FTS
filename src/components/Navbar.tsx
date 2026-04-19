@@ -10,9 +10,9 @@ const menuItems = [
   { name: "Products", href: "#products", id: "products" },
   { name: "Solutions", href: "#solutions", id: "solutions" },
   { name: "Services", href: "#services", id: "services" },
-  { name: "About Us", href: "#about", id: "about" },
-  { name: "Why Faaz", href: "#why-faaz", id: "why-faaz" },
-  { name: "Contact Us", href: "#contact", id: "contact" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Results", href: "#case-studies", id: "case-studies" },
+  { name: "Contact", href: "#contact", id: "contact" },
 ]
 
 export const Navbar: React.FC = () => {
@@ -73,7 +73,7 @@ export const Navbar: React.FC = () => {
               <img 
                 src={logo} 
                 alt="FAAZ Technology Solutions" 
-                className="h-10 md:h-12 object-contain transition-all duration-300 transform group-hover:scale-105" 
+                className="h-10 md:h-12 object-contain transition-all duration-300 transform group-hover:scale-105 brightness-150 contrast-125 drop-shadow-[0_0_15px_rgba(79,70,229,0.3)]" 
               />
             </div>
 

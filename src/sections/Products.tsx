@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Settings, Users, Briefcase, FileText } from 'lucide-react';
-import { staggerContainer, fadeInUp, springHover } from '../lib/animations';
+import { Settings, Users, Briefcase, FileText } from 'lucide-react';
+import { staggerContainer, fadeInUp } from '../lib/animations';
 
 const ProductCard = ({ 
   title, 
@@ -48,27 +48,57 @@ const ProductCard = ({
 
 export const Products: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeftState, setScrollLeftState] = React.useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    // Allow both left (0) and right (2) click to initiate drag
+    if (e.button !== 0 && e.button !== 2) return;
+    
+    setIsDragging(true);
+    if (scrollRef.current) {
+      setStartX(e.pageX - scrollRef.current.offsetLeft);
+      setScrollLeftState(scrollRef.current.scrollLeft);
+    }
+    
+    // Prevent context menu if right clicking to drag
+    if (e.button === 2) {
+      const handleContextMenu = (e: MouseEvent) => e.preventDefault();
+      window.addEventListener('contextmenu', handleContextMenu, { once: true });
+    }
+  };
+
+  const stopDragging = () => setIsDragging(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2.5; // scroll speed multiplier
+    scrollRef.current.scrollLeft = scrollLeftState - walk;
+  };
 
   const products = [
     {
-      title: "Custom ERP",
+      title: "Apps4x Platform",
       icon: Settings,
-      desc: "Tailored Enterprise Resource Planning system that adapts to your unique business logic, not the other way around.",
+      desc: "An AI-native operating layer that orchestrates workflows, intelligence, and accountability across existing enterprise systems.",
     },
     {
-      title: "Intelligent CRM",
-      icon: Users,
-      desc: "Go beyond contact management. Predictive lead scoring and automated follow-ups powered by Platform4x AI.",
-    },
-    {
-      title: "HRM Evolution",
-      icon: Briefcase,
-      desc: "Transform employee experience with the Saudi-first HRM solution. Fully compliant with local labor laws.",
-    },
-    {
-      title: "Case Manager",
+      title: "Apps4x E-Invoice",
       icon: FileText,
-      desc: "Integrated solution for tracking legal, compliance, and operational cases with audit trails.",
+      desc: "Fully ZATCA Phase 2 compliant e-invoicing for Saudi Arabia. 3+ years in production for large volume enterprises.",
+    },
+    {
+      title: "Custom ERP/CRM",
+      icon: Users,
+      desc: "Fully bespoke enterprise platforms built for your exact processes, user roles, and Saudi market requirements.",
+    },
+    {
+      title: "Workflow Engine",
+      icon: Briefcase,
+      desc: "Automate end-to-end business processes — approvals, escalations, and cross-system orchestration.",
     }
   ];
 
@@ -103,12 +133,18 @@ export const Products: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           ref={scrollRef}
-          className="flex gap-8 overflow-x-auto no-scrollbar pb-12 md:pl-24 pr-24 select-none"
-          style={{ scrollSnapType: 'x mandatory' }}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={stopDragging}
+          onMouseUp={stopDragging}
+          onMouseMove={handleMouseMove}
+          className={`flex gap-8 overflow-x-auto no-scrollbar pb-12 md:pl-24 pr-24 select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          style={{ scrollSnapType: isDragging ? 'none' : 'x mandatory' }}
         >
           {products.map((product, i) => (
-            <motion.div key={i} variants={fadeInUp} className="scroll-snap-align-start shrink-0">
-              <ProductCard {...product} />
+            <motion.div key={i} variants={fadeInUp} className="scroll-snap-align-start shrink-0 pointer-events-none">
+              <div className="pointer-events-auto">
+                <ProductCard {...product} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
