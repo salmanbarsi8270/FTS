@@ -1,0 +1,3 @@
+// Sample background video from Pexels (public domain)
+// Downloaded and renamed for demo purposes
+// Source: https://www.pexels.com/video/857195/

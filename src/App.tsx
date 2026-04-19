@@ -1,21 +1,40 @@
-import { Button } from "@/components/ui/button"
+import React from 'react';
+import { Navbar } from './components/Navbar';
+import { Home } from './sections/Home';
+import { Platform } from './sections/Platform';
+import { Products } from './sections/Products';
+import { Solutions } from './sections/Solutions';
+import { Services } from './sections/Services';
+import { AboutUs } from './sections/AboutUs';
+import { WhyFaaz } from './sections/WhyFaaz';
+import { ContactUs } from './sections/ContactUs';
 
-export function App() {
+import { Footer } from './components/Footer';
+import { ThemeProvider } from './components/theme-provider';
+
+function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <ThemeProvider defaultTheme="dark" storageKey="faaz-theme">
+      <div className="min-h-screen selection:bg-blue-500/30">
+        {/* Fixed Grain Overlay */}
+        <div className="grain" />
+        
+        <Navbar />
+        
+        <main>
+          <Home />
+          <Platform />
+          <Products />
+          <Solutions />
+          <Services />
+          <AboutUs />
+          <WhyFaaz />
+          <ContactUs />
+          <Footer />
+        </main>
       </div>
-    </div>
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
